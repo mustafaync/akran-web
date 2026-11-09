@@ -1,163 +1,94 @@
-# AKRAN - Smart Appointment Management SaaS
+# AkranRandevu
 
-A modern, production-ready SaaS website for AKRAN built with Next.js and Tailwind CSS.
+İşletmeler için online randevu yönetim platformu **AKRAN**'ın tanıtım web sitesi. Berber, kuaför, diş kliniği, kafe ve danışmanlık firması gibi randevuyla çalışan işletmelere yönelik bir SaaS ürününün ön yüzü olarak tasarlandı.
 
-## Overview
+> Bitirme projesi — Mustafa
 
-AKRAN is a smart, easy appointment management platform for businesses including barbers, salons, dental clinics, cafes, and consulting firms. This is a premium, Apple-inspired SaaS landing page with full bilingual support (English/Turkish).
+## Özellikler
 
-## Features
+- **Ana sayfa:** Hero, özellikler, nasıl çalışır (3 adım), fiyatlandırma, güvenlik ve güven bölümü, CTA, bülten kaydı ve footer
+- **Blog sayfası** (`/blog`)
+- **Yardım ve destek merkezi** (`/support`): SSS ve iletişim sekmeleri
+- **Türkçe / İngilizce dil desteği:** Navbar'daki TR / EN butonlarıyla anlık dil değişimi
+- **Canlı destek penceresi:** Sağ altta açılan sohbet kutusu (demo amaçlı, gerçek bir sunucuya bağlı değil)
+- **Çerez onayı:** Kullanıcının tercihi `localStorage`'da saklanır
+- **Duyarlı tasarım:** Mobil, tablet ve masaüstünde düzgün görünür
 
-- ✅ **Responsive Design** - Mobile-first approach with Tailwind CSS
-- ✅ **Bilingual Support** - English and Turkish language switcher
-- ✅ **Modern Components** - Reusable React components
-- ✅ **Premium Design** - Apple-style minimal aesthetic with green theme
-- ✅ **Full Pages**:
-  - Landing page with hero, features, pricing, and trust sections
-  - Blog page with sample posts
-  - Help & Support center with FAQ and contact form
-- ✅ **Interactive Elements**:
-  - Live chat widget
-  - Cookie consent banner
-  - Newsletter signup
-  - Language switcher in navbar
-- ✅ **SEO Optimized** - Metadata, proper HTML structure
+## Kullanılan Teknolojiler
 
-## Tech Stack
+| Teknoloji | Kullanım amacı |
+|---|---|
+| [Next.js 14](https://nextjs.org/) (App Router) | Sayfa yapısı ve yönlendirme |
+| React 18 | Arayüz bileşenleri |
+| TypeScript | Tip güvenliği |
+| Tailwind CSS | Stil ve duyarlı tasarım |
+| ESLint | Kod kalitesi kontrolü |
 
-- **Framework**: Next.js 14+ (App Router)
-- **Styling**: Tailwind CSS
-- **Language**: TypeScript
-- **Fonts**: System fonts (Inter-like)
+## Kurulum ve Çalıştırma
 
-## Installation & Setup
+Bilgisayarda [Node.js](https://nodejs.org/) (18 veya üzeri) kurulu olmalıdır.
 
-1. **Install dependencies**:
-   ```bash
-   npm install
-   ```
+```bash
+# Bağımlılıkları yükle
+npm install
 
-2. **Run development server**:
-   ```bash
-   npm run dev
-   ```
+# Geliştirme sunucusunu başlat
+npm run dev
+```
 
-3. **Build for production**:
-   ```bash
-   npm run build
-   npm start
-   ```
+Ardından tarayıcıda `http://localhost:3000` adresini açın.
 
-Visit `http://localhost:3000` in your browser.
+Üretim sürümü için:
 
-## Project Structure
+```bash
+npm run build
+npm start
+```
+
+## Proje Yapısı
 
 ```
 src/
 ├── app/
-│   ├── layout.tsx          # Root layout with language provider
-│   ├── page.tsx            # Landing page
-│   ├── globals.css         # Global styles
-│   ├── blog/
-│   │   └── page.tsx        # Blog listing
-│   └── support/
-│       └── page.tsx        # Support & Help center
+│   ├── layout.tsx            # Ana şablon, dil sağlayıcısı burada sarılır
+│   ├── page.tsx              # Ana sayfa (bileşenleri sırayla dizer)
+│   ├── globals.css           # Genel stiller
+│   ├── blog/page.tsx         # Blog sayfası
+│   └── support/page.tsx      # Yardım ve destek merkezi
 ├── components/
-│   ├── navbar.tsx          # Navigation with language switcher
-│   ├── hero.tsx            # Hero section
-│   ├── features.tsx        # Features grid
-│   ├── how-it-works.tsx    # 3-step process
-│   ├── pricing.tsx         # Pricing plans
-│   ├── trust.tsx           # Trust & security section
-│   ├── cta.tsx             # Call-to-action
-│   ├── newsletter.tsx      # Newsletter signup
-│   ├── footer.tsx          # Footer with links & social
-│   ├── logo.tsx            # AKRAN logo SVG component
-│   ├── cookie-consent.tsx  # Cookie banner
-│   └── live-chat.tsx       # Live chat widget
+│   ├── navbar.tsx            # Üst menü, logo ve dil değiştirici
+│   ├── hero.tsx              # Giriş bölümü (AKRAN akrostişli başlık)
+│   ├── features.tsx          # Özellik kartları
+│   ├── how-it-works.tsx      # 3 adımda nasıl çalışır
+│   ├── pricing.tsx           # Fiyat planları
+│   ├── trust.tsx             # KVKK/GDPR, güvenlik ve yorumlar
+│   ├── cta.tsx               # Harekete geçirici bölüm
+│   ├── newsletter.tsx        # Bülten kayıt formu
+│   ├── footer.tsx            # Alt bilgi ve bağlantılar
+│   ├── cookie-consent.tsx    # Çerez onay bandı
+│   └── live-chat.tsx         # Canlı destek penceresi
 └── lib/
-    └── language-context.tsx # i18n context with translations
+    └── language-context.tsx  # TR/EN çevirileri ve dil durumu (React Context)
+public/
+└── images/logo1.png          # Logo
 ```
 
-## Design Specifications
+## Çoklu Dil Desteği Nasıl Çalışıyor?
 
-- **Colors**: White background with green primary color (#22c55e, #16a34a)
-- **Border Radius**: Soft corners (rounded-xl, rounded-2xl)
-- **Typography**: Clean, modern system fonts
-- **Animations**: Subtle hover effects and transitions
-- **Tone**: Startup, premium, trustworthy
+Tüm metinler `src/lib/language-context.tsx` dosyasında `tr` ve `en` olarak iki nesnede tutulur. `LanguageProvider`, seçili dili React Context ile bütün sayfaya dağıtır. Bileşenler `useLanguage()` hook'u ile hem seçili dile hem de `t('hero.subtitle')` gibi çağrılarla çeviri fonksiyonuna erişir. Yeni bir metin eklemek için iki dildeki karşılığını bu dosyaya yazmak yeterlidir.
 
-## Content Management
+## Tasarım
 
-All content is managed through the `language-context.tsx` file with full Turkish and English translations including:
-- Navigation items
-- Section titles and descriptions
-- Feature descriptions
-- Pricing plan names
-- Trust section content
-- Newsletter signup
+- Beyaz zemin üzerinde yeşil/lime vurgu renkleri (Tailwind'de özel `akran` renk paleti tanımlı)
+- Yumuşak köşeler (`rounded-xl`, `rounded-2xl`) ve sade, modern bir görünüm
+- Hover efektleri ve hafif geçiş animasyonları
 
-## Key Components
+## Geliştirilebilecek Yönler
 
-### Logo (`logo.tsx`)
-SVG-based AR monogram with checkmark emerging from R, implemented as a reusable React component.
+- Randevu alma ve işletme paneli için backend (ör. veritabanı + API)
+- Canlı destek ve bülten formunun gerçek bir servise bağlanması
+- Kullanıcı girişi ve hesap yönetimi
 
-### Navbar (`navbar.tsx`)
-Sticky navbar with:
-- Logo and brand name
-- Menu items with smooth links
-- Language switcher (EN/TR)
-- Blur backdrop effect
+## Geliştirme Sürecine Dair Not
 
-### Hero (`hero.tsx`)
-Minimal, centered hero section with:
-- Large AKRAN title
-- Subtitle
-- 5-star rating with review count
-- User count
-- Logo wall
-
-### Features (`features.tsx`)
-11 features displayed as cards with:
-- Icons
-- Titles
-- Descriptions
-- Hover effects
-
-### Pricing (`pricing.tsx`)
-3-tier pricing structure with:
-- Monthly/Yearly toggle
-- Feature lists per plan
-- "Coming Soon" pricing message
-- Highlighted middle plan
-
-### Trust (`trust.tsx`)
-Trust-building section with:
-- KVKK/GDPR compliance badge
-- SSL & security information
-- Customer testimonials
-- Logo wall
-
-### Additional Features
-- **Live Chat**: Functional chat widget in bottom-left
-- **Newsletter**: Email signup with form submission
-- **Cookie Consent**: Smart cookie banner with localStorage
-- **Footer**: Links, legal info, and social media icons
-
-## Analytics Ready
-
-The structure supports easy integration with:
-- Google Analytics (GA4)
-- Meta Pixel
-- Custom event tracking
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## License
-
-All rights reserved © 2024 AKRAN
+Bu projenin geliştirilmesinde kod yazımı ve dokümantasyon aşamalarında yapay zekâ destekli araçlardan yardım alınmıştır.
