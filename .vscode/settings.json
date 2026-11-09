@@ -1,0 +1,11 @@
+{
+  "name": "View in browser",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "next dev",
+    "dev": "next dev",
+    "build": "next build",
+    "prod": "next start",
+    "lint": "next lint"
+  }
+}
